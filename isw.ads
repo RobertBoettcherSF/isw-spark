@@ -1,3 +1,4 @@
+-- Version: 0.01
 package ISW is
    -- Based on the ISW scheme requiring only the frequency vector
    -- for an alphabet of size M and window length W.
