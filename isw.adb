@@ -1,4 +1,4 @@
--- Version: 0.05
+-- Version: 0.06
 pragma SPARK_Mode;
 
 package body ISW is
@@ -14,7 +14,6 @@ package body ISW is
          pragma Loop_Invariant (Current >= 1 and Current < State.Num_Leaves);
          pragma Loop_Invariant (Remaining_R >= 1);
          pragma Loop_Invariant (Current <= Max_Tree_Size);
-         pragma Loop_Invariant (Left_Child <= Max_Tree_Size);
          pragma Loop_Variant (Increases => Current);
          
          Left_Child := 2 * Current;
