@@ -1,4 +1,4 @@
--- Version: 0.04
+-- Version: 0.05
 pragma SPARK_Mode;
 
 package body ISW is
@@ -13,6 +13,8 @@ package body ISW is
       while Current < State.Num_Leaves loop
          pragma Loop_Invariant (Current >= 1 and Current < State.Num_Leaves);
          pragma Loop_Invariant (Remaining_R >= 1);
+         pragma Loop_Invariant (Current <= Max_Tree_Size);
+         pragma Loop_Invariant (Left_Child <= Max_Tree_Size);
          pragma Loop_Variant (Increases => Current);
          
          Left_Child := 2 * Current;
@@ -52,6 +54,7 @@ package body ISW is
       -- 1. Propagate Decrement up the tree
       while Dec_Node >= 1 loop
          pragma Loop_Invariant (Dec_Node >= 1 and Dec_Node <= 2 * State.Num_Leaves - 1);
+         pragma Loop_Invariant (Dec_Node <= Max_Tree_Size);
          pragma Loop_Variant (Decreases => Dec_Node);
          
          if State.Tree (Dec_Node) > 0 then
@@ -63,6 +66,7 @@ package body ISW is
       -- 2. Propagate Increment up the tree
       while Inc_Node >= 1 loop
          pragma Loop_Invariant (Inc_Node >= 1 and Inc_Node <= 2 * State.Num_Leaves - 1);
+         pragma Loop_Invariant (Inc_Node <= Max_Tree_Size);
          pragma Loop_Variant (Decreases => Inc_Node);
          
          if State.Tree (Inc_Node) < Natural'Last then
