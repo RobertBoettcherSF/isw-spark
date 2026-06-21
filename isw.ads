@@ -1,4 +1,4 @@
--- Version: 0.03
+-- Version: 0.04
 pragma SPARK_Mode;
 
 package ISW is
@@ -14,6 +14,8 @@ package ISW is
    procedure Update_Window(State : in out Window_State; 
                            Index_To_Increment : Positive;
                            Random_Index_To_Decrement : Positive)
-     with Pre => Random_Index_To_Decrement <= State.M and 
-                 State.Freqs(Random_Index_To_Decrement) > 0;
+     with Pre => Index_To_Increment in 1 .. State.M and then
+                 Random_Index_To_Decrement in 1 .. State.M and then
+                 State.Freqs(Random_Index_To_Decrement) > 0 and then
+                 State.Freqs(Index_To_Increment) < Natural'Last;
 end ISW;
