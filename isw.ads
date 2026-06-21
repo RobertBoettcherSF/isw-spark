@@ -1,4 +1,4 @@
--- Version: 0.01
+-- Version: 0.02
 package ISW is
    -- Based on the ISW scheme requiring only the frequency vector
    -- for an alphabet of size M and window length W.
@@ -12,6 +12,6 @@ package ISW is
    procedure Update_Window(State : in out Window_State; 
                            Index_To_Increment : Positive;
                            Random_Index_To_Decrement : Positive)
-     with Pre => Index_To_Decrement <= State.M and 
+     with Pre => Random_Index_To_Decrement <= State.M and 
                  State.Freqs(Random_Index_To_Decrement) > 0;
 end ISW;
