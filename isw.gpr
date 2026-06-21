@@ -1,6 +1,5 @@
--- Version: 0.01
+-- Version: 0.02
 project Isw is
    for Source_Dirs use (".");
    for Object_Dir use "obj";
-   for Main use ("isw.adb");
 end Isw;
