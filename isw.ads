@@ -1,4 +1,6 @@
--- Version: 0.02
+-- Version: 0.03
+pragma SPARK_Mode;
+
 package ISW is
    -- Based on the ISW scheme requiring only the frequency vector
    -- for an alphabet of size M and window length W.

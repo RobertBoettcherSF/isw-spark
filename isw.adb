@@ -1,4 +1,6 @@
--- Version: 0.01
+-- Version: 0.02
+pragma SPARK_Mode;
+
 package body ISW is
    procedure Update_Window(State : in out Window_State; 
                            Index_To_Increment : Positive;
